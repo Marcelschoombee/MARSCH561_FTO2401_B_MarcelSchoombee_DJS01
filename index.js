@@ -41,8 +41,8 @@ const newDistance = calculateNewDistance(initialVelocityKilometersPerHour, calcu
 const remainingFuel = calculateRemainingFuel(startingFuelCapacityInKilograms, fuelBurnRateKilogramsPerSecond, calculationDurationInSeconds);
 
 
-console.log(`Corrected New Velocity: ${calculateNewDistance} km/h`);
-console.log(`Corrected New Distance: ${newVelocity} km`);
+console.log(`Corrected New Velocity: ${(newVelocity * 3600 / 1000).toFixed(2)} km/h`);
+console.log(`Corrected New Distance: ${newDistance} km`);
 console.log(`Corrected Remaining Fuel: ${remainingFuel} kg`);
 
 
