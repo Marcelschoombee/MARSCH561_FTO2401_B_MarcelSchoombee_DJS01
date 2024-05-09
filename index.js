@@ -20,11 +20,22 @@ const calculateNewVelocity = initialVelocityKilometersPerHour + (initialVelocity
   const newVelocity = initialVelocityKilometersPerHour + (spacecraftAccelerationMetersPerSecond * calculationDurationInSeconds);
   return newVelocity; //calculates new velocity based on acceleration
 }
-
+// Function for new distance
 const calculateNewDistance = (initialVelocityKilometersPerHour, calculationDurationInSeconds) => { 
   const newDistance = distanceStartingPointInKilometers + (initialVelocityKilometersPerHour * (calculationDurationInSeconds / 3600));
   return newDistance;
 }
+
+// Function remaining fuel with throw error warning
+const calculateRemainingFuel = (startingFuelCapacityInKilograms, fuelBurnRateKilogramsPerSecond, calculationDurationInSeconds) => {
+  const remainingFuel = startingFuelCapacityInKilograms - (fuelBurnRateKilogramsPerSecond * calculationDurationInSeconds);
+  if (remainingFuel < 0) {
+    throw new Error('Warning! Fuel depleted!');
+  }
+  return remainingFuel;
+}
+
+
 
 console.log(`Corrected New Velocity: ${calculateNewDistance} km/h`);
 console.log(`Corrected New Distance: ${newVelocity} km`);
