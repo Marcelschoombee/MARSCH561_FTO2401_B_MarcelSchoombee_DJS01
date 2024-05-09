@@ -6,7 +6,7 @@
  */
 
 // Given Parameters
-// variables discription
+// new veriable names
 const initialVelocityKilometersPerHour = 10000; // velocity (km/h)
 const spacecraftAccelerationMetersPerSecond = 3; // acceleration (m/s^2)
 const calculationDurationInSeconds = 3600; // seconds (1 hour)
@@ -14,19 +14,20 @@ const distanceStartingPointInKilometers = 0; // distance (km)
 const startingFuelCapacityInKilograms = 5000; // remaining fuel (kg)
 const fuelBurnRateKilogramsPerSecond = 0.5; // fuel burn rate (kg/s)
 
-
-const calculateNewDistance = distanceStartingPointInKilometers + (initialVelocityKilometersPerHour*calculationDurationInSeconds) //calcultes new distance
-const remainingFuel = fuelBurnRateKilogramsPerSecond*calculationDurationInSeconds //calculates remaining fuel
-const newVelocity = calculateNewVelocity(spacecraftAccelerationMetersPerSecond, initialVelocityKilometersPerHour, calculationDurationInSeconds) //calculates new velocity based on acceleration
-
-// Pick up an error with how the function below is called and make it robust to such errors
-calcNewVel = (vel, acc, time) => { 
-  return vel + (acc*time)
+// Function for new velocity 
+const calculateNewVelocity = initialVelocityKilometersPerHour + (initialVelocityKilometersPerHour, spacecraftAccelerationMetersPerSecond, calculationDurationInSeconds ) => { //calcultes new distance
+  const initialVelocityKilometersPerHour = initialVelocityKilometersPerHour * (1000 / 3600); //calculates remaining fuel
+  const newVelocity = initialVelocityKilometersPerHour + (spacecraftAccelerationMetersPerSecond * calculationDurationInSeconds);
+  return newVelocity; //calculates new velocity based on acceleration
 }
 
-console.log(`Corrected New Velocity: ${vel2} km/h`);
-console.log(`Corrected New Distance: ${d2} km`);
-console.log(`Corrected Remaining Fuel: ${rf} kg`);
+const calculateNewDistance = (initialVelocityKilometersPerHour, calculationDurationInSeconds) => { 
+  const newDistance = distanceStartingPointInKilometers + (initialVelocityKilometersPerHour * (calculationDurationInSeconds / 3600));
+}
+
+console.log(`Corrected New Velocity: ${calculateNewDistance} km/h`);
+console.log(`Corrected New Distance: ${newVelocity} km`);
+console.log(`Corrected Remaining Fuel: ${remainingFuel} kg`);
 
 
 
