@@ -23,6 +23,7 @@ const calculateNewVelocity = initialVelocityKilometersPerHour + (initialVelocity
 
 const calculateNewDistance = (initialVelocityKilometersPerHour, calculationDurationInSeconds) => { 
   const newDistance = distanceStartingPointInKilometers + (initialVelocityKilometersPerHour * (calculationDurationInSeconds / 3600));
+  return newDistance;
 }
 
 console.log(`Corrected New Velocity: ${calculateNewDistance} km/h`);
