@@ -15,9 +15,9 @@ const startingFuelCapacityInKilograms = 5000; // remaining fuel (kg)
 const fuelBurnRateKilogramsPerSecond = 0.5; // fuel burn rate (kg/s)
 
 // Function for new velocity 
-const calculateNewVelocity = initialVelocityKilometersPerHour + (initialVelocityKilometersPerHour, spacecraftAccelerationMetersPerSecond, calculationDurationInSeconds ) => { //calcultes new distance
-  const initialVelocityKilometersPerHour = initialVelocityKilometersPerHour * (1000 / 3600); //calculates remaining fuel
-  const newVelocity = initialVelocityKilometersPerHour + (spacecraftAccelerationMetersPerSecond * calculationDurationInSeconds);
+const calculateNewVelocity = (initialVelocityKilometersPerHour, spacecraftAccelerationMetersPerSecond, calculationDurationInSeconds ) => { //calcultes new distance
+  const initialVelocityMetersPerSecond  = initialVelocityKilometersPerHour * (1000 / 3600); //calculates remaining fuel
+  const newVelocity = initialVelocityMetersPerSecond + (spacecraftAccelerationMetersPerSecond * calculationDurationInSeconds);
   return newVelocity; //calculates new velocity based on acceleration
 }
 // Function for new distance
@@ -35,6 +35,10 @@ const calculateRemainingFuel = (startingFuelCapacityInKilograms, fuelBurnRateKil
   return remainingFuel;
 }
 
+// Calculation 
+const newVelocity = calculateNewVelocity(initialVelocityKilometersPerHour, spacecraftAccelerationMetersPerSecond, calculationDurationInSeconds);
+const newDistance = calculateNewDistance(initialVelocityKilometersPerHour, calculationDurationInSeconds);
+const remainingFuel = calculateRemainingFuel(startingFuelCapacityInKilograms, fuelBurnRateKilogramsPerSecond, calculationDurationInSeconds);
 
 
 console.log(`Corrected New Velocity: ${calculateNewDistance} km/h`);
